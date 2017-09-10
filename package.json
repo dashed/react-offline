@@ -1,0 +1,76 @@
+{
+  "name": "react-offline",
+  "version": "0.0.0",
+  "description": "React component that notifies when browser is either offline or online.",
+  "main": "lib/index.js",
+  "module": "es/index.js",
+  "license": "MIT",
+  "peerDependencies": {
+    "react": "15.x || ^16.0.0-rc"
+  },
+  "files": [
+    "es",
+    "lib",
+    "umd"
+  ],
+  "repository": "https://github.com/dashed/react-offline",
+  "author": {
+    "name": "Alberto Leal",
+    "email": "mailforalberto@gmail.com",
+    "url": "github.com/dashed"
+  },
+  "devDependencies": {
+    "babel-eslint": "^7.2.3",
+    "eslint": "^4.6.1",
+    "eslint-plugin-react": "^7.3.0",
+    "nwb": "^0.18.10",
+    "prettier": "^1.6.1",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1"
+  },
+  "scripts": {
+    "pretty": "prettier --write --tab-width 4 'src/**/*.js' 'test/**/*.js'",
+    "lint": "eslint src test",
+    "build": "nwb build-react-component",
+    "clean": "nwb clean-module && nwb clean-demo",
+    "test": "nwb test-react",
+    "travis": "npm run lint && npm run test",
+    "prepublish": "npm run lint && npm run test && npm run build"
+  },
+  "eslintConfig": {
+    "parser": "babel-eslint",
+    "env": {
+      "browser": true,
+      "node": true,
+      "mocha": true
+    },
+    "plugins": [
+      "react"
+    ],
+    "extends": [
+      "eslint:recommended",
+      "plugin:react/recommended"
+    ]
+  },
+  "babel": {
+    "presets": [
+      [
+        "env",
+        {
+          "targets": {
+            "node": "0.12"
+          }
+        }
+      ]
+    ]
+  },
+  "keywords": [
+    "react",
+    "offline",
+    "react-offline",
+    "online"
+  ],
+  "dependencies": {
+    "prop-types": "^15.5.10"
+  }
+}
