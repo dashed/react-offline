@@ -1,6 +1,8 @@
 react-offline [![Build Status](https://travis-ci.org/dashed/react-offline.svg)](https://travis-ci.org/dashed/react-offline) [![npm version](https://img.shields.io/npm/v/react-offline.svg?style=flat)](https://www.npmjs.com/package/react-offline)
 =============
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/dashed/react-offline.svg)](https://greenkeeper.io/)
+
 > React component that notifies when browser is either offline or online.
 
 ## Install
