@@ -1,8 +1,14 @@
 sudo: false
 language: node_js
 node_js:
-    - "4"
-    - "5"
-    - "6"
-    - "7"
-script: "npm run travis"
+- '7'
+- '6'
+- '5'
+- '4'
+before_install: yarn global add greenkeeper-lockfile@1
+before_script: greenkeeper-lockfile-update
+script: npm run travis
+after_script: greenkeeper-lockfile-upload
+env:
+  global:
+    secure: TNbbrOh+AsTjQ5wg0JQZblJ56xJOGeZPHIuhdt/hEWxC40AFBmarUR2GqiHYwcs2bi0E5jgBWxVJNmAoYKJPHnGYt+cA/XfwzlWDmmBGK/TpCvUosYQqHpotPGiWvtiAazDvM5A3Z+iMelO5Jd23O6Q5OaJZ2BtAf+14qveJsh/VxCHdqXYNq9o2U/JvHA9RMV+k17wkmQ0R85xb6VyRrR5pHAkeVLqL1yF3CGBICDCECC7PMUxhXqzAynhrNohd1/07KHA6SS7hIfJXdTlYDe3YjRHMLn8/QN4uHvHWBm9UtcXsYHiBTWtOwNto/ZKNiT8XpvERMmpO3zIfB/RGiqCiVu9p8wvwWDBwx+WI83zt9knSFrRDbL61vw3cZkeZP+fHlHoIh4dZ3ytClCtX7IEWhRObce3+BAKzkgNgHad3phrpWMbKbcBypanjiIt6iDekFTKKFirhTPn8AKMRyULvCgQY24lSJ4L35hiJw/FYBGKWb8UEUFzB4/e9Q8JZ26dVMPPtUGBx6tjCJ3UMiTDQhDADne6sO7/TagcZ95NiGiwpO87uuHPJ0BImzAiB92t5VoetRiphEqNX+ni/h9RXUs9yrwzWUr0XYFjGRdYnxqZ7abolT/0p32PWWFidNeT1dlg0hXJ1mKgBpL818AAhtRuyZwCUIFpXslyJt58=
