@@ -1,6 +1,6 @@
 {
   "name": "react-offline",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "React component that notifies when browser is either offline or online.",
   "main": "lib/index.js",
   "module": "es/index.js",
