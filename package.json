@@ -20,13 +20,13 @@
     "url": "github.com/dashed"
   },
   "devDependencies": {
-    "babel-eslint": "^7.2.3",
+    "babel-eslint": "^8.0.0",
     "eslint": "^4.6.1",
     "eslint-plugin-react": "^7.3.0",
     "nwb": "^0.18.10",
     "prettier": "^1.6.1",
-    "react": "^15.6.1",
-    "react-dom": "^15.6.1"
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0"
   },
   "scripts": {
     "pretty": "prettier --write --tab-width 4 'src/**/*.js' 'test/**/*.js'",
