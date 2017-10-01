@@ -5,6 +5,8 @@ react-offline [![Build Status](https://travis-ci.org/dashed/react-offline.svg)](
 
 > React component that notifies when browser is either offline or online.
 
+**NOTE:** A few days after this library was initially published, [`react-network`](https://github.com/ReactTraining/react-network) was published; so you may prefer to use that instead of `react-offline`.
+
 ## Install
 
 ```sh
