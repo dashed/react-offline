@@ -71,6 +71,6 @@
     "online"
   ],
   "dependencies": {
-    "prop-types": "^15.5.10"
+    "prop-types": "^15.7.2"
   }
 }
