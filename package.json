@@ -26,7 +26,7 @@
     "nwb": "^0.21.0",
     "prettier": "^1.6.1",
     "react": "^16.8.3",
-    "react-dom": "^16.0.0"
+    "react-dom": "^16.8.3"
   },
   "scripts": {
     "pretty": "prettier --write --tab-width 4 'src/**/*.js' 'test/**/*.js'",
