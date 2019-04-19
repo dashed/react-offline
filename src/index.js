@@ -6,21 +6,33 @@ import PropTypes from "prop-types";
 
 // component
 
+const hasWindow = () => {
+  return typeof window !== "undefined";
+};
+
 export default class Offline extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      isOffline: !window.navigator.onLine,
-      isOnline: window.navigator.onLine
+      isOffline: hasWindow() ? !window.navigator.onLine : false,
+      isOnline: hasWindow() ? window.navigator.onLine : true
     };
   }
 
   componentDidMount() {
+    if (!hasWindow()) {
+      return;
+    }
+
     window.addEventListener("online", this.handleOnline);
     window.addEventListener("offline", this.handleOffline);
   }
 
   componentWillUnmount() {
+    if (!hasWindow()) {
+      return;
+    }
+
     window.removeEventListener("online", this.handleOnline);
     window.removeEventListener("offline", this.handleOffline);
   }
