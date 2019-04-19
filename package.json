@@ -37,7 +37,7 @@
     "react-test-renderer": "^16.8.6"
   },
   "scripts": {
-    "pretty": "prettier --write 'src/**/*.js' 'test/**/*.js' './*.js'",
+    "pretty": "prettier --write 'src/**/*.js' 'test/**/*.js' './*.js' './*.md'",
     "lint": "eslint src test",
     "build": "microbundle --no-compress --external=all --sourcemap=false",
     "dev": "microbundle watch --no-compress  --external=all --sourcemap=false",
