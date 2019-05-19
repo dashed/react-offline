@@ -6,66 +6,81 @@ import PropTypes from "prop-types";
 
 // component
 
+const hasWindow = () => {
+  return typeof window !== "undefined";
+};
+
 export default class Offline extends Component {
-    static propTypes = {
-        onChange: PropTypes.func,
-        render: PropTypes.func,
-        children: PropTypes.oneOfType([
-            PropTypes.arrayOf(PropTypes.node),
-            PropTypes.func
-        ])
+  constructor(props) {
+    super(props);
+    this.state = {
+      isOffline: hasWindow() ? !window.navigator.onLine : false,
+      isOnline: hasWindow() ? window.navigator.onLine : true
     };
+  }
 
-    static defaultProps = {
-        render: null,
-        onChange: () => {}
-    };
-
-    state = {
-        isOffline: !window.navigator.onLine,
-        isOnline: window.navigator.onLine
-    };
-
-    componentDidMount() {
-        window.addEventListener("online", this.handleOnline);
-        window.addEventListener("offline", this.handleOffline);
+  componentDidMount() {
+    if (!hasWindow()) {
+      return;
     }
 
-    componentWillUnmount() {
-        window.removeEventListener("online", this.handleOnline);
-        window.removeEventListener("offline", this.handleOffline);
+    window.addEventListener("online", this.handleOnline);
+    window.addEventListener("offline", this.handleOffline);
+  }
+
+  componentWillUnmount() {
+    if (!hasWindow()) {
+      return;
     }
 
-    handleOnline = () => {
-        this.handleEvent(false);
-    };
+    window.removeEventListener("online", this.handleOnline);
+    window.removeEventListener("offline", this.handleOffline);
+  }
 
-    handleOffline = () => {
-        this.handleEvent(true);
-    };
+  handleOnline = () => {
+    this.handleEvent(false);
+  };
 
-    handleEvent = (isOffline = true) => {
-        const isOnline = !isOffline;
+  handleOffline = () => {
+    this.handleEvent(true);
+  };
 
-        this.props.onChange({ isOffline, isOnline });
-        this.setState({ isOffline, isOnline });
-    };
+  handleEvent = (isOffline = true) => {
+    const isOnline = !isOffline;
 
-    render() {
-        const { children, render } = this.props;
+    this.props.onChange({ isOffline, isOnline });
+    this.setState({ isOffline, isOnline });
+  };
 
-        if (render) {
-            return render(this.state);
-        }
+  render() {
+    const { children, render } = this.props;
 
-        if (children) {
-            if (typeof children === "function") {
-                return children(this.state);
-            }
-
-            return React.Children.only(children)(this.state);
-        }
-
-        return null;
+    if (render) {
+      return render(this.state);
     }
+
+    if (children) {
+      if (typeof children === "function") {
+        return children(this.state);
+      }
+
+      return React.Children.only(children)(this.state);
+    }
+
+    return null;
+  }
 }
+
+Offline.propTypes = {
+  onChange: PropTypes.func,
+  render: PropTypes.func,
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.func
+  ])
+};
+
+Offline.defaultProps = {
+  render: null,
+  onChange: () => {}
+};

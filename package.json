@@ -2,16 +2,17 @@
   "name": "react-offline",
   "version": "0.1.0",
   "description": "React component that notifies when browser is either offline or online.",
-  "main": "lib/index.js",
-  "module": "es/index.js",
+  "source": "src/index.js",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "unpkg": "dist/index.umd.js",
   "license": "MIT",
   "peerDependencies": {
-    "react": "15.x || ^16.0.0-rc"
+    "react": ">=0.14.9"
   },
   "files": [
-    "es",
-    "lib",
-    "umd"
+    "src",
+    "dist"
   ],
   "repository": "https://github.com/dashed/react-offline",
   "author": {
@@ -20,22 +21,29 @@
     "url": "github.com/dashed"
   },
   "devDependencies": {
-    "babel-eslint": "^8.0.0",
-    "eslint": "^4.6.1",
-    "eslint-plugin-react": "^7.3.0",
-    "nwb": "^0.21.0",
-    "prettier": "^1.6.1",
-    "react": "^16.0.0",
-    "react-dom": "^16.0.0"
+    "@babel/plugin-proposal-class-properties": "^7.4.0",
+    "@babel/preset-env": "^7.4.3",
+    "@babel/preset-react": "^7.0.0",
+    "babel-eslint": "^10.0.1",
+    "babel-jest": "^24.7.1",
+    "eslint": "^5.16.0",
+    "eslint-plugin-jest": "^22.4.1",
+    "eslint-plugin-react": "^7.12.4",
+    "jest": "^24.7.1",
+    "microbundle": "^0.11.0",
+    "prettier": "^1.17.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-test-renderer": "^16.8.6"
   },
   "scripts": {
-    "pretty": "prettier --write --tab-width 4 'src/**/*.js' 'test/**/*.js'",
+    "pretty": "prettier --write 'src/**/*.js' 'test/**/*.js' './*.js' './*.md'",
     "lint": "eslint src test",
-    "build": "nwb build-react-component",
-    "clean": "nwb clean-module && nwb clean-demo",
-    "test": "nwb test-react",
+    "build": "microbundle --no-compress --external=all --sourcemap=false",
+    "dev": "microbundle watch --no-compress  --external=all --sourcemap=false",
+    "test": "jest test/",
     "travis": "npm run lint && npm run test",
-    "prepublish": "npm run lint && npm run test && npm run build"
+    "prepare": "npm run lint && npm run test && npm run build"
   },
   "eslintConfig": {
     "parser": "babel-eslint",
@@ -45,23 +53,13 @@
       "mocha": true
     },
     "plugins": [
-      "react"
+      "react",
+      "jest"
     ],
     "extends": [
       "eslint:recommended",
-      "plugin:react/recommended"
-    ]
-  },
-  "babel": {
-    "presets": [
-      [
-        "env",
-        {
-          "targets": {
-            "node": "0.12"
-          }
-        }
-      ]
+      "plugin:react/recommended",
+      "plugin:jest/recommended"
     ]
   },
   "keywords": [
@@ -71,6 +69,6 @@
     "online"
   ],
   "dependencies": {
-    "prop-types": "^15.5.10"
+    "prop-types": "^15.7.2"
   }
 }
