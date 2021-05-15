@@ -32,9 +32,9 @@
     "jest": "^24.7.1",
     "microbundle": "^0.11.0",
     "prettier": "^1.17.0",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
-    "react-test-renderer": "^16.8.6"
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "react-test-renderer": "17.0.2"
   },
   "scripts": {
     "pretty": "prettier --write 'src/**/*.js' 'test/**/*.js' './*.js' './*.md'",
