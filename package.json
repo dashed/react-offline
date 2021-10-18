@@ -30,7 +30,7 @@
     "eslint-plugin-jest": "^22.4.1",
     "eslint-plugin-react": "^7.12.4",
     "jest": "^24.7.1",
-    "microbundle": "^0.11.0",
+    "microbundle": "0.14.1",
     "prettier": "^1.17.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
